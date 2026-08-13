@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>President</title>
+
+  <link
+    rel="stylesheet"
+    href="/style.css"
+  >
+</head>
+
+<body>
+  <main class="app">
+
+    <h1>President</h1>
+
+    <!-- HOME / JOIN SCREEN -->
+    <section
+      id="home"
+      class="panel"
+    >
+      <input
+        id="nameInput"
+        maxlength="20"
+        placeholder="Your name"
+        autocomplete="nickname"
+      >
+
+      <div class="row">
+        <button id="createBtn">
+          Create room
+        </button>
+      </div>
+
+      <div class="divider">
+        or join
+      </div>
+
+      <div class="row">
+        <input
+          id="roomInput"
+          maxlength="6"
+          placeholder="Room code"
+          autocapitalize="characters"
+        >
+
+        <button id="joinBtn">
+          Join
+        </button>
+      </div>
+
+      <p
+        id="homeError"
+        class="error"
+      ></p>
+    </section>
+
+    <!-- GAME -->
+    <section
+      id="game"
+      class="hidden"
+    >
+      <div class="topbar">
+        <strong>
+          Room:
+          <span id="roomCode"></span>
+        </strong>
+
+        <div class="topbar-right">
+          <span id="status"></span>
+
+          <button
+            id="leaveBtn"
+            class="leave-button"
+          >
+            Leave Game
+          </button>
+        </div>
+      </div>
+
+      <!-- LOBBY -->
+      <section
+        id="lobby"
+        class="panel"
+      >
+        <h2>Players</h2>
+
+        <div
+          id="lobbyPlayers"
+        ></div>
+
+        <p id="lobbyMessage"></p>
+
+        <button
+          id="startBtn"
+          class="hidden"
+        >
+          Start game
+        </button>
+      </section>
+
+      <!-- ACTUAL GAME -->
+      <section
+        id="playArea"
+        class="hidden"
+      >
+        <div
+          id="players"
+          class="players"
+        ></div>
+
+        <!-- TABLE -->
+        <div class="table panel">
+          <div class="label">
+            Current play
+          </div>
+
+          <div
+            id="pile"
+            class="pile"
+          >
+            —
+          </div>
+
+          <p id="message"></p>
+        </div>
+
+        <!-- PRESIDENT / SCUM EXCHANGE -->
+        <div
+          id="exchangePanel"
+          class="panel hidden"
+        ></div>
+
+        <button
+          id="continueExchangeBtn"
+          class="hidden"
+        >
+          Continue
+        </button>
+
+        <!-- ROUND RESULTS -->
+        <div
+          id="roundResults"
+          class="panel hidden"
+        ></div>
+
+        <!-- YOUR HAND -->
+        <div
+          id="handPanel"
+          class="panel"
+        >
+          <div class="turnline">
+            <span id="turnText"></span>
+          </div>
+
+          <div
+            id="hand"
+            class="hand"
+          ></div>
+
+          <div class="actions">
+            <button id="playBtn">
+              Play selected
+            </button>
+
+            <button id="passBtn">
+              Pass
+            </button>
+          </div>
+        </div>
+
+        <button
+          id="nextRoundBtn"
+          class="hidden"
+        >
+          Start next round
+        </button>
+      </section>
+    </section>
+  </main>
+
+  <!-- Socket.IO client -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/client.js"></script>
+</body>
+</html>

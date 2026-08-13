@@ -1,0 +1,331 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    Arial,
+    sans-serif;
+  background: #111;
+  color: #eee;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  cursor: pointer;
+  background: #eee;
+  color: #111;
+  font-weight: 700;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+input {
+  width: 100%;
+  min-width: 0;
+  border:
+    1px solid #555;
+  border-radius: 8px;
+  padding: 12px;
+  background: #222;
+  color: #fff;
+}
+
+.app {
+  width:
+    min(900px, 94vw);
+  margin:
+    30px auto;
+}
+
+h1 {
+  margin-bottom:
+    20px;
+}
+
+.panel {
+  background: #1d1d1d;
+  border:
+    1px solid #333;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 12px 0;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.divider {
+  text-align: center;
+  color: #888;
+  margin: 14px 0;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.leave-button {
+  padding: 7px 10px;
+  font-size: 13px;
+  background: #333;
+  color: #eee;
+}
+
+.leave-button:hover {
+  background: #444;
+}
+
+.players {
+  display: grid;
+  grid-template-columns:
+    repeat(4, 1fr);
+  gap: 8px;
+}
+
+.player {
+  border:
+    1px solid #444;
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 75px;
+}
+
+.player.current {
+  border-color: #fff;
+}
+
+.player.me {
+  background: #252525;
+}
+
+.player .name {
+  font-weight: 700;
+}
+
+.player .meta {
+  color: #aaa;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.table {
+  text-align: center;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.label {
+  color: #888;
+  font-size: 13px;
+}
+
+.pile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 110px;
+  margin: 10px;
+}
+
+.hand {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.card {
+  width: 62px;
+  height: 88px;
+  border:
+    2px solid #aaa;
+  border-radius: 8px;
+  background: #fafafa;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.card.red {
+  color: #c22;
+}
+
+.card.selected {
+  transform:
+    translateY(-10px);
+  border-color:
+    #55aaff;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.turnline {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 15px;
+  min-height: 20px;
+}
+
+.error {
+  color: #ff7777;
+  min-height: 20px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#nextRoundBtn,
+#continueExchangeBtn {
+  width: 100%;
+}
+
+.played-card {
+  width: 70px;
+  height: 98px;
+  border:
+    2px solid #aaa;
+  border-radius: 9px;
+  background: #fafafa;
+  color: #111;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.played-card.red {
+  color: #c22;
+}
+
+.played-card-rank {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.played-card-suit {
+  font-size: 25px;
+  line-height: 1;
+  margin-top: 4px;
+}
+
+.exchange {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+  margin: 25px 0;
+}
+
+.exchange-player {
+  text-align: center;
+}
+
+.exchange-player .played-card {
+  margin: 10px 0;
+}
+
+.exchange-arrow {
+  font-size: 32px;
+}
+
+.exchange-hand {
+  margin-top: 15px;
+}
+
+#exchangePanel {
+  text-align: center;
+}
+
+@media (max-width: 650px) {
+  .app {
+    margin:
+      15px auto;
+  }
+
+  .players {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .card {
+    width: 52px;
+    height: 76px;
+    font-size: 20px;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .topbar {
+    align-items: flex-start;
+  }
+
+  .topbar-right {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .played-card {
+    width: 55px;
+    height: 78px;
+  }
+
+  .played-card-rank {
+    font-size: 22px;
+  }
+
+  .played-card-suit {
+    font-size: 19px;
+  }
+
+  .exchange {
+    gap: 15px;
+  }
+
+  .exchange-arrow {
+    font-size: 24px;
+  }
+}
